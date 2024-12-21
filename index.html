@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alphabet Clash Pro</title>
+
+    <!-- css link -->
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <!-- daisyui and tailwind -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- customize -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              body: "#010313",
+            },
+            backgroundImage: {
+              picture: "url('images/background.png')",
+              "custom-gradient":
+                "linear-gradient(121deg, rgba(255, 255, 255, 0.56) 0%, rgba(152, 151, 151, 0.00) 102.2%)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <main class="bg-body min-h-screen bg-picture bg-no-repeat bg-top">
+      <!-- home -->
+      <section id="home-screen">
+        <div class="flex justify-center items-center min-h-screen">
+          <div class="text-white text-center space-y-12">
+            <h6 class="text-9xl font-anton">ALPHABET CLASH</h6>
+            <p class="font-poppins text-2xl font-medium">
+              Unleash Your Keyboard Kung Fu : Press “Enter” to Play
+            </p>
+            <button
+              onclick="play()"
+              class="bg-white font-poppins font-semibold text-2xl text-[#010313] py-5 px-8 rounded cursor-pointer hover:bg-orange-600 hover:text-white duration-150"
+            >
+              Play Now
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- playground -->
+      <section id="play-ground" class="hidden">
+        <div class="flex flex-col items-center space-y-5">
+          <!-- board 1024 X 320 -->
+          <div
+            class="artboard artboard-horizontal phone-6 rounded-2xl bg-[#ffffffb3] mt-12 border-[20px] border-[#010313cc]"
+          >
+            <div class="flex justify-center">
+              <p
+                class="text-white bg-[#2F2941] py-4 px-7 font-medium font-poppins rounded-bl-[12px] rounded-br-[12px]"
+              >
+                Don't watch keyboard while playing...
+              </p>
+            </div>
+
+            <div class="flex justify-center mt-12">
+              <p
+                id="prev-alphabet"
+                class="font-poppins text-[#010313] font-semibold text-9xl uppercase"
+              >
+                Y
+              </p>
+            </div>
+          </div>
+          <!-- keyboard -->
+
+          <div>
+            <div class="my-1 flex w-full justify-center gap-1">
+              <kbd
+                id="q"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >q</kbd
+              >
+              <kbd
+                id="w"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >w</kbd
+              >
+              <kbd
+                id="e"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >e</kbd
+              >
+              <kbd
+                id="r"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >r</kbd
+              >
+              <kbd
+                id="t"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >t</kbd
+              >
+              <kbd
+                id="y"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer font-medium font-inter text-[#010313] text-xl"
+                >y</kbd
+              >
+              <kbd
+                id="u"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >u</kbd
+              >
+              <kbd
+                id="i"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >i</kbd
+              >
+              <kbd
+                id="o"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >o</kbd
+              >
+              <kbd
+                id="p"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >p</kbd
+              >
+            </div>
+            <div class="my-1 flex w-full justify-center gap-1">
+              <kbd
+                id="a"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >a</kbd
+              >
+              <kbd
+                id="s"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >s</kbd
+              >
+              <kbd
+                id="d"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >d</kbd
+              >
+              <kbd
+                id="f"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >f</kbd
+              >
+              <kbd
+                id="g"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >g</kbd
+              >
+              <kbd
+                id="h"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >h</kbd
+              >
+              <kbd
+                id="j"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >j</kbd
+              >
+              <kbd
+                id="k"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >k</kbd
+              >
+              <kbd
+                id="l"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >l</kbd
+              >
+            </div>
+            <div class="my-1 flex w-full justify-center gap-1">
+              <kbd
+                id="z"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >z</kbd
+              >
+              <kbd
+                id="x"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >x</kbd
+              >
+              <kbd
+                id="c"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >c</kbd
+              >
+              <kbd
+                id="v"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >v</kbd
+              >
+              <kbd
+                id="b"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >b</kbd
+              >
+              <kbd
+                id="n"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >n</kbd
+              >
+              <kbd
+                id="m"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >m</kbd
+              >
+              <kbd
+                id="/"
+                rounded
+                cursor-pointer
+                class="kbd rounded-lg cursor-pointer bg-white font-medium font-inter text-[#010313] text-xl"
+                >/</kbd
+              >
+            </div>
+          </div>
+
+          <!-- life score -->
+          <div class="w-full flex justify-between px-16">
+            <button
+              class="btn rounded-full bg-[#894189] border-0 text-white font-inter"
+            >
+              <span>Life</span>
+              <img src="images/heart.svg" alt="" />
+              <span id="life-score">5</span>
+            </button>
+            <button
+              class="btn rounded-full text-white bg-[#894189] border-0 font-inter"
+            >
+              <span>Score</span>
+              <img src="images/dolar.svg" alt="" />
+              <span id="current-score">0</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- score -->
+      <section id="score" class="hidden">
+        <div class="flex justify-center min-h-screen items-center">
+          <div
+            class="space-y-5 font-poppins text-center border p-10 border-[#ffffff33] rounded-2xl bg-custom-gradient"
+          >
+            <h3 class="text-3xl text-white">Game Over!</h3>
+            <h2 class="text-7xl text-white">
+              <span class="font-extrabold">Score : </span
+              ><span id="final-score">0</span>
+            </h2>
+            <button
+              onclick="playAgain()"
+              class="bg-white font-poppins font-semibold text-2xl text-[#010313] py-5 px-8 rounded cursor-pointer hover:bg-orange-600 hover:text-white duration-150"
+            >
+              Play Again
+            </button>
+            <p class="text-xl font-medium text-white">
+              Practice will make you Pro
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="js/utility.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
